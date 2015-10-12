@@ -66,7 +66,7 @@ describe("Board", function() {
 
   it('should detect a minor diagonal conflict', function() {
     debugger;
-    var diagnoalConflictBoard = new Board([0,0,0],[0,1,0],[1,0,0]);
+    var diagnoalConflictBoard = new Board([[0,0,0],[0,1,0],[1,0,0]]);
     expect(diagnoalConflictBoard.hasMinorDiagonalConflictAt(2)).to.equal(true);
   });
 

@@ -188,9 +188,9 @@
       var col = minorDiagonalColumnIndexAtFirstRow;
       var counter = 0;
       var rows = this.rows();
+      var j = 0;
 
       for(var i = col; i >= 0; i--) {
-        var j = 0;
         if(this._isInBounds([i],[j])) {
           counter += rows[i][j];
         }
