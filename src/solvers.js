@@ -48,10 +48,6 @@ window.countNRooksSolutions = function(n) {
     possibleRows.push(row);
   }
 
-  if(n === 3) {
-    debugger;
-  }
-
   var solutionCount = 0;
 
   var rooksHelper = function(rows, nextRow) {
@@ -62,14 +58,13 @@ window.countNRooksSolutions = function(n) {
     var board = new Board(currentBoard);
     if(board.get('n') === n && !board.hasAnyRooksConflicts()) {
       solutionCount++;
-      //currentBoard.splice(currentBoard.length - 1, 1
     } else if (!board.hasAnyRooksConflicts()) {
       for(var i = 0; i < n; i++) {
         rooksHelper(currentBoard, possibleRows[i]);
         currentBoard.splice(currentBoard.length - 1, 1);
       }
     } else {
-      //currentBoard.splice(currentBoard.length - 1, 1);
+
       //do nothing
     }
   };
