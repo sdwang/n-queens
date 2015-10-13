@@ -75,6 +75,7 @@ window.countNRooksSolutions = function(n, boardArr, possibleRows, solutionCount)
     for(var next = 0; next < possibleRows.length; next++) {
       if(boardArr.length === n) {
         solutionCount++;
+        boardArr = [];
         return solutionCount;
       }
       boardArr.push(possibleRows[next]);
