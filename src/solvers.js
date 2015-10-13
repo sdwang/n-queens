@@ -45,9 +45,7 @@ window.countNRooksSolutions = function(n, boardArr, possibleRows, solutionCount)
   //   }
   //   boardArr.push(row);
   // }
-  if(n === 2) {
-    debugger;
-  };
+
 
   if(solutionCount === undefined) {
     var solutionCount = 0;
@@ -65,6 +63,10 @@ window.countNRooksSolutions = function(n, boardArr, possibleRows, solutionCount)
     }
   }
 
+  if(n === 3) {
+    debugger;
+  };
+
   for(var p = 0; p < possibleRows.length; p++) {
     if(boardArr === undefined) {
       boardArr = [];
@@ -75,12 +77,13 @@ window.countNRooksSolutions = function(n, boardArr, possibleRows, solutionCount)
         solutionCount++;
         return solutionCount;
       }
-      boardArr.push(possibleRows[p]);
+      boardArr.push(possibleRows[next]);
       var board = new Board(boardArr)
-      if (!board.hasAnyRowConflicts && !board.hasAnyColConflicts) {
+      var rowConflict = board.hasAnyRowConflicts;
+      if (!board.hasAnyRowConflicts() && !board.hasAnyColConflicts()) {
         solutionCount += countNRooksSolutions(n, boardArr, possibleRows, solutionCount);
       } else {
-        break;
+        boardArr.splice(boardArr.length - 1, 1);
       }
     }
 
